@@ -101,6 +101,7 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+"FROM ubuntu:22.04" - changed Ubuntu version inside Dockerfile as initial version appears not to be supported any longer
 sudo docker build .
 sudo docker login -u "treisto" -p "**************" docker.io
 sudo docker tag 5f2c55500abf treisto/crw-hw
@@ -143,7 +144,12 @@ sudo docker run -ti -v $(pwd):/shared treisto/crw-hw bash
 # Add your commands here
 sudo docker run -ti -v $(pwd):/shared treisto/crw-hw bash
 root@e78e89ee849a:/shared# py.test-3 (failed)
-
+modify wallet.py
+sudo docker run -ti -v $(pwd):/shared treisto/crw-hw bash
+root@e78e89ee849a:/shared# py.test-3 (success)
+git add .
+git commit -m "working wallet"
+git push
 ```
 
 3. Run the tests inside the container by going to `/root/shared` and running the
