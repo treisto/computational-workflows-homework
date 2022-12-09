@@ -173,6 +173,10 @@ git push
     # Add your commands here
     mkdir .github/
     mkdir workflows
-    git commit -m "add .github/workflows/test"
+    git commit -m "add .github/workflows/test.yml"
+    git push
+    modify test.yml
+    git add .
+    git commit -m "update test.yml"
     git push
     ```
