@@ -22,6 +22,19 @@ The email should contain a link to a GitHub repository with:
 
     ```
     # Add your commands here
+    git clone https://github.com/treisto/computational-workflows-homework.git
+    mkdir jhale-homework
+    git clone https://github.com/jhale/computational-workflows-homework
+    cd computational-workflows-homework/
+    git add .
+    git commit -m "initial commit"
+    git config --global user.email "lucian.trestioreanu@gmail.com"
+    git config --global user.name "treisto"
+    git push
+    git commit -m "add dockerfile"
+    git push
+    mkdir .github/
+    mkdir workflows
     ```
 * A `wallet.py` file that passes the unit tests.
 * A `Dockerfile`.
