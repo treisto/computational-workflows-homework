@@ -23,18 +23,14 @@ The email should contain a link to a GitHub repository with:
     ```
     # Add your commands here
     git clone https://github.com/treisto/computational-workflows-homework.git
-    mkdir jhale-homework
-    git clone https://github.com/jhale/computational-workflows-homework
     cd computational-workflows-homework/
-    git add .
-    git commit -m "initial commit"
     git config --global user.email "lucian.trestioreanu@gmail.com"
     git config --global user.name "treisto"
     git push
-    git commit -m "add dockerfile"
-    git push
     mkdir .github/
     mkdir workflows
+    git commit -m "add .github/workflows/test"
+    git push
     ```
 * A `wallet.py` file that passes the unit tests.
 * A `Dockerfile`.
@@ -96,6 +92,10 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+    touch Dockerfile
+    git add .
+    git commit -m "add dockerfile"
+    git push
 ```
 
 ## Build and push Docker image
@@ -106,6 +106,11 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+sudo docker build .
+sudo docker login -u "treisto" -p "**************" docker.io
+sudo docker tag 5f2c55500abf treisto/crw-hw
+sudo docker images
+sudo docker push treisto/crw-hw
 ```
 
 ## Run a container, and share in files from the host.
@@ -116,6 +121,7 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+sudo docker run -ti -v $(pwd):/shared treisto/crw-hw bash
 ```
 
 ## Setup a simple Python test suite
@@ -127,6 +133,12 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+    mkdir jhale-homework
+    git clone https://github.com/jhale/computational-workflows-homework
+    files wallet.py and test_wallet.py were copied manually from ~/jhale-homework/computational-workflows-homework to ~/computational-workflows-homework (not through the terminal)
+    git add .
+    git commit -m "initial commit"
+    git push
 ```
 
 2. Start a Docker container using your image and share your repository into a
@@ -134,6 +146,9 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+sudo docker run -ti -v $(pwd):/shared treisto/crw-hw bash
+root@e78e89ee849a:/shared# py.test-3 (failed)
+
 ```
 
 3. Run the tests inside the container by going to `/root/shared` and running the
