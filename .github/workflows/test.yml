@@ -2,8 +2,8 @@ name: homework CI
 on: [push]
 jobs:
   tests:
-    runs-on: ubuntu-20.04
-    container: treisto/homework:latest
+    runs-on: ubuntu-22.04
+    container: treisto/crw-hw:latest
 
     steps:
       - name: Checkout code
