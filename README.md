@@ -26,11 +26,6 @@ The email should contain a link to a GitHub repository with:
     cd computational-workflows-homework/
     git config --global user.email "lucian.trestioreanu@gmail.com"
     git config --global user.name "treisto"
-    git push
-    mkdir .github/
-    mkdir workflows
-    git commit -m "add .github/workflows/test"
-    git push
     ```
 * A `wallet.py` file that passes the unit tests.
 * A `Dockerfile`.
@@ -167,3 +162,11 @@ root@e78e89ee849a:/shared# py.test-3 (failed)
 
 3. Push the `.github/workflows/test.yml` file to GitHub. Check that you get the
    green tick showing that your tests pass.
+
+    ```
+    # Add your commands here
+    mkdir .github/
+    mkdir workflows
+    git commit -m "add .github/workflows/test"
+    git push
+    ```
